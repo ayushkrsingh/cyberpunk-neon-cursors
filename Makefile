@@ -2,7 +2,8 @@
 THEME   := Cyberpunk-Neon
 VERSION := 1.0.0
 PY      := python3
-ARCHIVE := dist/$(THEME)-$(VERSION).tar.gz
+TGZ     := dist/$(THEME)-$(VERSION).tar.gz
+ZIP     := dist/$(THEME)-$(VERSION).zip
 
 .PHONY: all theme preview dist install uninstall clean check
 
@@ -16,9 +17,12 @@ preview:
 
 dist: theme
 	@mkdir -p dist
-	tar -czf $(ARCHIVE) --owner=0 --group=0 $(THEME)
-	cd dist && sha256sum $(notdir $(ARCHIVE)) > $(notdir $(ARCHIVE)).sha256
-	@ls -lh $(ARCHIVE)
+	rm -f $(TGZ) $(ZIP)
+	tar -czf $(TGZ) --owner=0 --group=0 $(THEME)
+	zip -qry $(ZIP) $(THEME)          # -y keeps the 119 symlinks as symlinks
+	cd dist && sha256sum $(notdir $(TGZ)) > $(notdir $(TGZ)).sha256 \
+	        && sha256sum $(notdir $(ZIP)) > $(notdir $(ZIP)).sha256
+	@ls -lh $(TGZ) $(ZIP)
 
 install:
 	./install.sh

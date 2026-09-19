@@ -82,6 +82,26 @@ def banner():
     return im
 
 
+# Six cursors for the product logo: one from each colour family, plus the
+# two most recognisable shapes.
+LOGO = ["default", "pointer", "move", "copy", "not-allowed", "wait"]
+
+
+def logo(side=512, size=96, cols=3):
+    im = Image.new("RGB", (side, side), DARK)
+    rows = (len(LOGO) + cols - 1) // cols
+    pad = 56
+    cw = (side - pad * 2) / cols
+    ch = cw
+    top = (side - rows * ch) / 2
+    for i, n in enumerate(LOGO):
+        g = glyph(n, size)
+        x = pad + (i % cols) * cw + (cw - size) / 2
+        y = top + (i // cols) * ch + (ch - size) / 2
+        im.paste(g, (int(round(x)), int(round(y))), g)
+    return im
+
+
 def sizes_strip():
     sizes = gen.SIZES
     cell, pad = 110, 26
@@ -103,6 +123,7 @@ def sizes_strip():
 def main():
     os.makedirs(OUTD, exist_ok=True)
     jobs = [
+        ("logo.png", logo()),
         ("banner.png", banner()),
         ("all-cursors-dark.png",
          sheet(ALL, 48, 7, DARK, INK_D, title="All 33 cursors")),

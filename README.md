@@ -17,6 +17,10 @@ per-hue edge that keeps them readable on light backgrounds.
 
 ## Preview
 
+<div align="center">
+<img src="preview/logo.png" width="260" alt="Cyberpunk-Neon logo">
+</div>
+
 ![All 33 cursors](preview/all-cursors-dark.png)
 
 Every glyph carries a 1px edge in a darkened shade of **its own colour** — dark
@@ -32,17 +36,41 @@ a single master:
 
 ---
 
-## Install
+## Download
 
-### Option 1 — download the archive (easiest)
+| File | Size | |
+|---|---|---|
+| **[Cyberpunk-Neon-1.0.0.tar.gz](https://github.com/ayushkrsingh/cyberpunk-neon-cursors/raw/main/dist/Cyberpunk-Neon-1.0.0.tar.gz)** | 445 KB | recommended |
+| **[Cyberpunk-Neon-1.0.0.zip](https://github.com/ayushkrsingh/cyberpunk-neon-cursors/raw/main/dist/Cyberpunk-Neon-1.0.0.zip)** | 469 KB | if you prefer zip |
 
-Grab `Cyberpunk-Neon-1.0.0.tar.gz` from [`dist/`](dist/) (or from the Releases
-page) and extract it into your icons directory:
+Download either one, then paste this into a terminal:
 
 ```bash
 mkdir -p ~/.icons
-tar -xzf Cyberpunk-Neon-1.0.0.tar.gz -C ~/.icons
+
+# if you downloaded the .tar.gz
+tar -xzf ~/Downloads/Cyberpunk-Neon-1.0.0.tar.gz -C ~/.icons
+
+# or, if you downloaded the .zip
+unzip ~/Downloads/Cyberpunk-Neon-1.0.0.zip -d ~/.icons
+
+gsettings set org.gnome.desktop.interface cursor-theme Cyberpunk-Neon
+gsettings set org.gnome.desktop.interface cursor-size 28
 ```
+
+That's it. Both archives contain the same theme and unpack to a single
+`Cyberpunk-Neon/` folder.
+
+Checksums: [`.tar.gz.sha256`](https://github.com/ayushkrsingh/cyberpunk-neon-cursors/raw/main/dist/Cyberpunk-Neon-1.0.0.tar.gz.sha256) ·
+[`.zip.sha256`](https://github.com/ayushkrsingh/cyberpunk-neon-cursors/raw/main/dist/Cyberpunk-Neon-1.0.0.zip.sha256)
+
+---
+
+## Install
+
+### Option 1 — the archive
+
+See [Download](#download) above.
 
 ### Option 2 — clone and run the installer
 
