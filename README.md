@@ -211,12 +211,6 @@ The per-hue edge is the workaround.
 
 ---
 
-## Credits
-
-Designed from two reference screenshots, kept in [`reference/`](reference/) for
-provenance. Built with [pycairo](https://pycairo.readthedocs.io),
-[Pillow](https://python-pillow.org) and `xcursorgen`.
-
 ## License
 
 [GPL-3.0](LICENSE) © [ayushkrsingh](https://github.com/ayushkrsingh)
